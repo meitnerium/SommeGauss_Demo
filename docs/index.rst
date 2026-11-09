@@ -15,6 +15,6 @@ pytest et Sphinx.
 Référence de l'API
 ------------------
 
-.. automodule:: somme_demo.calcul
+.. automodule:: somme
    :members:
    :undoc-members:

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="fr" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Somme des premiers entiers — démonstration &#8212; Documentation Somme de Gauss - demo </title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=d1a510d7"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/translations.js?v=e6b791cb"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="somme-des-premiers-entiers-demonstration">
+<h1>Somme des premiers entiers — démonstration<a class="headerlink" href="#somme-des-premiers-entiers-demonstration" title="Lien vers cette rubrique">¶</a></h1>
+<section id="pourquoi-ce-projet">
+<h2>Pourquoi ce projet ?<a class="headerlink" href="#pourquoi-ce-projet" title="Lien vers cette rubrique">¶</a></h2>
+<p>Deux implémentations donnent le même résultat : une boucle et la formule
+de Gauss. Nous utilisons cette petite tâche pour présenter Git, Ruff,
+pytest et Sphinx.</p>
+<div class="math notranslate nohighlight">
+\[S(n) = 1 + 2 + \cdots + n = \frac{n(n+1)}{2}\]</div>
+</section>
+<section id="module-somme">
+<span id="reference-de-l-api"></span><h2>Référence de l’API<a class="headerlink" href="#module-somme" title="Lien vers cette rubrique">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="somme.somme_gauss">
+<span class="sig-prename descclassname"><span class="pre">somme.</span></span><span class="sig-name descname"><span class="pre">somme_gauss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#somme.somme_gauss" title="Lien vers cette définition">¶</a></dt>
+<dd><p>Calcule la somme des n premiers entiers par Gauss.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>Nombre d’entiers à additionner. Doit être positif
+ou nul.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>int</dt><dd><p>Somme des entiers de 1 à n.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Si n est négatif.</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Lien vers cette rubrique">¶</a></h3>
+<p>La somme est calculée directement par la relation :</p>
+<blockquote>
+<div><p>S(n) = n * (n + 1) / 2</p>
+</div></blockquote>
+<p>Le nombre d’opérations arithmétiques est constant,
+indépendamment de n.</p>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="somme.somme_iterative">
+<span class="sig-prename descclassname"><span class="pre">somme.</span></span><span class="sig-name descname"><span class="pre">somme_iterative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#somme.somme_iterative" title="Lien vers cette définition">¶</a></dt>
+<dd><p>Calcule la somme des n premiers entiers par itération.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>n<span class="classifier">int</span></dt><dd><p>Nombre d’entiers à additionner. Doit être positif
+ou nul.</p>
+</dd>
+</dl>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>int</dt><dd><p>Somme des entiers de 1 à n.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h3>Raises<a class="headerlink" href="#id3" title="Lien vers cette rubrique">¶</a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>Si n est négatif.</p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h3>Notes<a class="headerlink" href="#id4" title="Lien vers cette rubrique">¶</a></h3>
+<p>La méthode additionne successivement les entiers
+de 1 à n. Sa complexité temporelle est O(n).</p>
+</section>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Somme de Gauss - demo</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.2.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

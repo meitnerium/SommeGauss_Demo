@@ -27,7 +27,7 @@ def somme_iterative(n: int) -> int:
         raise ValueError("n doit être positif ou nul")
 
     total = 0
-    for i in range(1, n):
+    for i in range(1, n + 1):
         total += i
 
     return total
